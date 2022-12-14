@@ -1,0 +1,18 @@
+POST http://localhost:3000/user 
+Content-Type: application/json
+
+{
+    "id":1,
+    "name" : "un premier"
+}
+
+###
+
+POST http://localhost:3000/user 
+Content-Type: application/json
+
+{
+    "id":2,
+    "name" : "un autre"
+}
+
