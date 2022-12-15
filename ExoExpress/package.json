@@ -1,14 +1,26 @@
 {
-  "name": "exoexpress",
+  "name": "ExoExpress",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/rlefevrematloka/express_js.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/rlefevrematloka/express_js/issues"
+  },
+  "homepage": "https://gitlab.com/rlefevrematloka/express_js#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-jsdoc-swagger": "^1.8.0",
+    "mongoose": "^6.8.0"
   }
 }
