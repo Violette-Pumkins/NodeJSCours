@@ -1,8 +1,8 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 export const swaggerOptions = {
   info: {
@@ -19,8 +19,9 @@ export const swaggerOptions = {
       bearerFormat: 'JWT' 
     },
   },
-  baseDir: __dirname,
-  filesPattern: './*/.js',
+  apis: [],
+  baseDir: dirname,
+  filesPattern: './**/*.js',
   swaggerUIPath: '/api-docs',
   exposeSwaggerUI: true,
   exposeApiDocs: false,

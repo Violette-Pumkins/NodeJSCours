@@ -22,8 +22,28 @@ const getSingle = async(req, res) => {
 const create = async(req, res) => {
     try {
         const { body: data } = req
-        const post = await Post.create(body)
+        const post = await Post.create(data)
         res.status(201).json(post)
+    } catch (err) {
+        res.status(400).json( { message: err.message })
+    }
+}
+
+const update = async(req, res) => {
+    try {
+        const { body : data, params : { id } } = req 
+        const post = await Post.findOneAndUpdate({_id: id}, data, { returnOriginal : false })
+        res.status(201).json(post)
+    } catch (err) {
+        res.status(400).json( { message: err.message })
+    }
+}
+
+const remove = async(req, res) => {
+    try {
+        const { id } = req.params
+        const post = await Post.deleteOne({_id : id})
+        res.status(201).json({message: "utilisateur " + id + " est supprimé"})
     } catch (err) {
         res.status(400).json( { message: err.message })
     }
@@ -32,5 +52,7 @@ const create = async(req, res) => {
 export {
     getAll as getPosts,
     getSingle as getSinglePost,
-    create as createPost
+    create as createPost,
+    update as updatePost,
+    remove as removePost
 }
