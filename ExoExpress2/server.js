@@ -8,7 +8,7 @@ import { routerApi } from "./routers/api.router.js";
 console.log(config);
 
 mongoose.set('strictQuery', true);
-mongoose.connect('mongodb+srv://lucien:12122001@cluster0.shjnqcf.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://violette-pumkins:Janedoe008@cluster0.rdiw0ws.mongodb.net/test')
     .then(() => console.log('Connexion to mongo successful'))
     .catch(() => console.log(err))
 

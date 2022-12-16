@@ -11,15 +11,16 @@ const login = async (req, res) => {
         const user = await User.findOne({email: body.email})
         console.log(body.password)
         if (!user){
-            res.status(404).json({ message: "User not found"})
+           return res.status(404).json({ message: "User not found"})
+            
         }
         if (await bcrypt.compare(body.password, user.password)) {
             if (config.secret){
                 const token = await jwt.sign({userId : user.id}, config.secret, {expiresIn: '48h'})
                 console.log(token)
-                res.status(200).json(token)
+                return res.status(200).json(token)
             }else{
-                res.status(500).json({ message: "No secret key"})
+                return res.status(500).json({ message: "No secret key"})
             }
         }else{
             res.status(401).json({ message: "Wrong password"})
@@ -37,9 +38,9 @@ const register = async (req, res) => {
         body.password = hash
         console.log(body)
         await User.create(body)
-        res.status(201).json({message : "User created"})
+        return res.status(201).json({message : "User created"})
     }catch(err){
-        res.status(400).json({ message: err.message})
+        return res.status(400).json({ message: err.message})
     }
 }
 
