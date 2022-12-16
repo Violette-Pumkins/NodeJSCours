@@ -1,0 +1,67 @@
+GET http://localhost:3000/post
+
+###
+
+GET http://localhost:3000/post/1
+
+###
+
+GET http://localhost:3000/post/10
+
+###
+
+POST http://localhost:3000/post 
+Content-Type: application/json
+
+{
+    "id":1,
+    "name" : "premier post"
+}
+
+###
+
+POST http://localhost:3000/post 
+Content-Type: application/json
+
+{
+    "id":1,
+    "name" : "un autre post avec le même id"
+}
+
+###
+
+POST http://localhost:3000/post 
+Content-Type: application/json
+
+{
+    "id":2,
+    "name" : "un autre post avec un autre id"
+}
+
+###
+
+PUT http://localhost:3000/post 
+Content-Type: application/json
+
+{
+    "id":1,
+    "name" : "Un nouveau message pour mon post"
+}
+
+###
+
+PUT http://localhost:3000/post 
+Content-Type: application/json
+
+{
+    "id":10,
+    "name" : "Un nouveau message pour un post qui n'exsite pas"
+}
+
+###
+
+DELETE http://localhost:3000/post/2
+
+###
+
+DELETE http://localhost:3000/post/15
